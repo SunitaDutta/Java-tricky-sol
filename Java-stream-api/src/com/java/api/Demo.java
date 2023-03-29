@@ -156,7 +156,7 @@ public class Demo {
 	public static void printWordsByMaxOccurance() {
 		System.out.println("Find occurrance of each word and print the occurance in reverse order max- min");
 		
-		String s = "You already know that inflation is taking a bigger and bigger bite out of your wallet. Now, it’s going to affect the size of your paycheck in 2023. Even if you get a sizable raise next year, you won’t necessarily take home more money. Many ingredients are baked into the recipe that produces your take-home pay, like deductions for taxes and health care benefits, and your contributions to retirement accounts. Whether you’ll see more money in your paycheck, less or about the same will depend on your circumstances. Here’s a preview of what is changing next year.";
+		String s = "You already know that inflation is taking a bigger and bigger bite out of your wallet. Now, itâ€™s going to affect the size of your paycheck in 2023. Even if you get a sizable raise next year, you wonâ€™t necessarily take home more money. Many ingredients are baked into the recipe that produces your take-home pay, like deductions for taxes and health care benefits, and your contributions to retirement accounts. Whether youâ€™ll see more money in your paycheck, less or about the same will depend on your circumstances. Hereâ€™s a preview of what is changing next year.";
 		
 		String[] words = s.split(" ");
 		
@@ -207,5 +207,14 @@ public class Demo {
 		
 		sortedlist.forEach(System.out::println);
 		
+	}
+	
+	public static void CreateListOf_N_Thread(){
+		
+		 List<Thread> workers =  Stream
+					      .generate(() -> new Thread(new MyRunnable(threadId, countDownLatch)))
+					      .limit(5)
+					      .collect(toList());
+           workers.forEach(Thread::start);
 	}
 }
